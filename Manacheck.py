@@ -59,5 +59,25 @@ def onkoRiittavasti(manaC, manaP):
     else:
         return False
 
-Onnistuuko = onkoRiittavasti(Manacost, Manapool)
-print(Onnistuuko)
+run = True
+while run:
+    print("Press 1 to use default ManaPool and ManaCost")
+    print("Press 2 to use custom ManaPool and ManaCost")
+    print("Press 3 to exit")
+    valinta = input("Valinta: ")
+    if valinta == "1":
+        Onnistuuko = onkoRiittavasti(Manacost, Manapool)
+    if valinta == "2":
+        Mp = input("Give ManaPool: (W, U, B, R, G, C)")
+        Mc = input("Give ManaCost: (Neutral, W, U, B, R, G, C)")
+        Onnistuuko = onkoRiittavasti(Mc, Mp)
+    if valinta == "3":
+        run = False
+    print(Onnistuuko)
+    if Onnistuuko == True:
+        print("Mana is enough")
+        run = False
+    
+    else:
+        print("Mana is not enough")
+        run = False
